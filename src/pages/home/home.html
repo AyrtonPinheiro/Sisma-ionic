@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      SisMa
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button [navPush]="cadastroOcorrenciaPage" ion-button full icon-left color="light" href="cadastroOcorrencia.html">
+     <ion-icon name="md-add-circle"></ion-icon>
+     Cadastrar nova ocorrência
+  </button>
+  <button [navPush]="visualizarOcorrenciasPage" ion-button full icon-left color="light">
+    <ion-icon name="md-eye"></ion-icon>
+    Acompanhar suas ocorrências
+  </button>
+</ion-content>

@@ -1,0 +1,36 @@
+<!--
+  Generated template for the CadastroOcorrencia page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nova Ocorrência</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="ocorrencia" (ngSubmit)="postOcorrencia()">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Local</ion-label>
+      <ion-input type="text" name="local" formControlName="local"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-textarea type="text" name="descricao" formControlName="descricao"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Foto</ion-label>
+      <ion-input type="text" name="foto" formControlName="foto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button [disabled]="ocorrencia.invalid" ion-button full block>Cadastrar</button>
+    </ion-item>
+  </ion-list>
+</form>
+</ion-content>
