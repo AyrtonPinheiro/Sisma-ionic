@@ -23,7 +23,7 @@
       <h3>Descrição: {{ocorrencia.descricao}}</h3>
       <h3>Foto: {{ocorrencia.foto}}</h3>
       <!-- <button ion-button clear item-right (click)="goToDetalhes()">Detalhes</button>-->
-      <button  ion-button clear item-right [navPush]="detalhesOcorrenciaPage" [navParams]="params">Detalhes</button>
+      <button  ion-button clear item-right [navPush]="detalhesOcorrenciaPage" [navParams]="ocorrencia.id">Detalhes</button>
     </ion-item>
   </ion-list>
 </ion-content>
