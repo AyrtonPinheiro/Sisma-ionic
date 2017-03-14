@@ -14,9 +14,9 @@ import { VisualizarOcorrenciasPage } from '../visualizar-ocorrencias/visualizar-
 })
 export class DetalhesOcorrenciaPage {
 
-  local: string = this.navParams.get('local');
-  descricao: string = this.navParams.get('descricao');
-  foto: string = this.navParams.get('foto');
+  local: string = this.navParams.get('paramLocal');
+  descricao: string = this.navParams.get('paramDescricao');
+  foto: string = this.navParams.get('paramFoto');
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 

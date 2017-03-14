@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DetalhesOcorrenciaPage } from '../detalhes-ocorrencia/detalhes-ocorrencia';
+import { Http } from '@angular/http';
+import {Observable} from 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the VisualizarOcorrencias page.
@@ -16,14 +19,14 @@ export class VisualizarOcorrenciasPage {
   detalhesOcorrenciaPage = DetalhesOcorrenciaPage;
 
    params: any[];
-   public ocorrencias: any[];
    listOcorrencias: any[];
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.ocorrencias = this.getOcorrencias();
-    this.listOcorrencias = [
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    /*
+      this.listOcorrencias =
+    [
       {id: 1, local: "aqui mesmo", descricao: "torneira", foto: "torneira.png"},
       {id: 2, local: "lá", descricao: "cadeira", foto: "cadeira.png"},
       {id: 3, local: "não sei", descricao: "mesa", foto: "mesa.png"},
@@ -35,17 +38,24 @@ export class VisualizarOcorrenciasPage {
       {id: 9, local: "não sei", descricao: "mesa", foto: "mesa.png"}
 
     ];
-    this.params = this.listOcorrencias[2];
+    */
+    this.http.get('http://apisisma.herokuapp.com/barramento/ocorrencias')
+      .map(res => res.json())
+      .subscribe(data => {
+        this.listOcorrencias = data;
+        });
+    //this.params = this.listOcorrencias[2];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VisualizarOcorrenciasPage');
   }
-  getOcorrencias() {
-    return this.listOcorrencias;
-  }
-  goToDetalhes(){
-    this.navCtrl.push(DetalhesOcorrenciaPage, this.listOcorrencias);
+
+  goToDetalhes(id, local, descricao, foto){
+    this.navCtrl.push(DetalhesOcorrenciaPage,  {
+    paramId: id, paramLocal: local, paramDescricao: descricao, paramFoto: foto
+     });
+
   }
 
 }
