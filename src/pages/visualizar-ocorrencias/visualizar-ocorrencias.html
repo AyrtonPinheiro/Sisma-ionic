@@ -15,10 +15,23 @@
 
 <ion-content padding>
   <ion-list>
+    <ion-item>
+      <h2 style="text-align:center; "><strong>Buscar pelo protocolo</strong></h2>
+    </ion-item>
+    <ion-item>
+      <ion-label>Protocolo: </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <div>
+      <button ion-button full (click)="goToDetalhes(0,'aaa','aaa','aaa.jpeg')">Buscar</button>
+    </div>
+  </ion-list>
+  <ion-list>
      <ion-item *ngFor="let ocorrencia of listOcorrencias">
       <ion-thumbnail item-left>
          <img src="http://placehold.it/50x50">
       </ion-thumbnail>
+      <h3>Protocolo: </h3>
       <h3>Local: {{ocorrencia.local}}</h3>
       <h3>Descrição: {{ocorrencia.descricao}}</h3>
       <h3>Foto: {{ocorrencia.foto}}</h3>
